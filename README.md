@@ -1,4 +1,4 @@
-# Penetration Test Project  
+# Penetration Test Project
 
 This project demonstrates penetration tests using VirtualBox.  
 
@@ -13,7 +13,7 @@ This project demonstrates penetration tests using VirtualBox.
 [See the Parrot OS page](./AttackVM/parrot.md)  
 
 ## Hacking Projects
-[See the hacking projects page](./HackingProjects/)
+[See the hacking projects page](./HackingProjects/)  
 
 ## Example Hacking Lab Configuration  
-![LabConfiguration.png](./img/LabConfiguration.png)
+![LabConfiguration.png](./img/LabConfiguration.png)  
