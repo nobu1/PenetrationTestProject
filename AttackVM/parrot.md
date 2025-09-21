@@ -27,6 +27,10 @@ Although Kali is more popular than ParrotOS, I select ParrotOS. The reason is th
 1. Enable USB 3.0
     * Select USB 3.0 (xHCI) Controller
     ![Set3](../img/VirtualBox_Setting3.png)  
+1. Enable Network Adapter
+    * Attached to: **NAT** in the Adapter 1
+    ![Set4](../img/VirtualBox_Setting4.png)
+    * Adapter 2, 3, 4 are not to set  
 
 ## Install ParrotOS to the Empty Virtual Machine
 1. Start ParrotOS machine from the VirtualBox
@@ -47,3 +51,11 @@ Although Kali is more popular than ParrotOS, I select ParrotOS. The reason is th
         `source ~/.bashrc`
 1. Extract rockyou.txt.gz file from the terminal  
     `gunzip /usr/share/wordlists/rockyou.txt.gz`
+1. Install FTP command  
+    `sudo apt update`  
+    `sudo apt install ftp`
+
+## Change Network Adapter Setting
+1. Network adapter setting from NAT to **Host-only Adapter**  
+    ![Setting5](../img/VirtualBox_Setting5.png)  
+    Since the host-only adapter can communicate within the virtual network, no damage occurs even if the machine attempts to attack a public service machines.
