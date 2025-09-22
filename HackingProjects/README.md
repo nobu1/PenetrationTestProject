@@ -1,6 +1,6 @@
 # Hacking Projects  
 
-## How to prepare vulnerable machines?
+## Vulnerable Machine Platform 
 * Although there are many hacking platforms, such as TryHackMe and Hack The Box, these platforms require a fee to learn penetration testing.  
 I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https://github.com/rapid7/metasploitable3)** platforms because these platforms do not require a monetary investment.  
 
