@@ -14,3 +14,4 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | DHCP        | Enabled                                                                 |
 | Difficulty  | Easy to medium                                                          |
 | Goal        | 2 Flags (user.txt and root.txt)                                         |
+| Hacking     | [See the walkthrough](potato.md) |
