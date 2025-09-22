@@ -75,7 +75,7 @@ Input the `exit`.
     Changed: `../../../../../etc/passwd`  
     ![file_directory](./img/potato_server10.png)
     ![etc_passwd](./img/potato_server11.png)
-1. Make /etc/passwd data file using the Cookie pass and curl command  
+1. Make /etc/passwd data file using the Cookie pass and curl command
     - Cookie pass is as follows
     ![Cookie_pass](./img/potato_server12.png)
     - Curl command is as follows  
