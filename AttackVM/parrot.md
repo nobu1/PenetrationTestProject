@@ -28,7 +28,7 @@ Although Kali is more popular than ParrotOS, I select ParrotOS. The reason is th
     * Select USB 3.0 (xHCI) Controller
     ![Set3](../img/VirtualBox_Setting3.png)  
 1. Enable Network Adapter
-    * Attached to: **NAT** in the Adapter 1
+    * Attached to: **NAT (Not NAT Network)** in the Adapter 1
     ![Set4](../img/VirtualBox_Setting4.png)
     * Adapter 2, 3, 4 are not to set  
 
