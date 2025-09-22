@@ -58,4 +58,5 @@ Although Kali is more popular than ParrotOS, I select ParrotOS. The reason is th
 ## Change Network Adapter Setting
 1. Network adapter setting from NAT to **Host-only Adapter**  
     ![Setting5](../img/VirtualBox_Setting5.png)  
-    Since the host-only adapter can communicate within the virtual network, no damage occurs even if the machine attempts to attack a public service machines.
+    Since the host-only adapter can communicate within the virtual network, no damage occurs even if the machine attempts to attack a public service machines.  
+    Although the Host-only adapter cannot communicate with the public network, each virtual machine can communicate with each others.
