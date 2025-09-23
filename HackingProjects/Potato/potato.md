@@ -14,9 +14,9 @@
     ![StartPotato](./img/potato_server_initial.png)
 
 1. Confirm the IP address of the Potato virtual machine from the attack virtual machine  
-    * `sudo netdiscover -i enp0s3 -r 192.168.56.0/24`
-    ![netdiscover](./img/potato_server1.png)
-    ![PotatoIP-Address](./img/potato_server2.png)
+    * `sudo netdiscover -i enp0s3 -r 192.168.56.0/24`  
+    ![netdiscover](./img/potato_server1.png)  
+    ![PotatoIP-Address](./img/potato_server2.png)  
         * 192.168.56.100: DHCP Server
         * **192.168.56.102**: Potato Server
 
@@ -126,8 +126,7 @@ Input the `exit`
     * While analyzing password hash, we know there is a "florianges" user
     * Access to the "home/floarianges" directory and seek attackable files  
     ![floarianges-home](./img/potato_server17.png)  
-    * There is a suspicious "sudo_as_admin_successful" file but the file size is 0   
-    -> Think other approaches
+    * There is a suspicious "sudo_as_admin_successful" file but the file size is 0 -> Think other approaches
 
 1. Confirm sudo setting  
     * Check webadmin's permission using `sudo-l`
