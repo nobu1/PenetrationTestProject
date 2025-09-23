@@ -2,48 +2,59 @@
 
 ## Preparation
 1. Download Potato.ova file ([Potato.ova](https://download.vulnhub.com/potato/Potato.ova))
+
 1. Import the OVA file in the VirtualBox
+
 1. Set the network adapter to Host-only Adapter
-![Host-onlyAdapter](./img/potato_server_network.png)
+    * Attached to: **Host-only Adapter**
+    ![Host-onlyAdapter](./img/potato_server_network.png)
+
 1. Start the Potato virtual machine
-![StartPotato](./img/potato_server_initial.png)
+    * Turn on the potato virtual machine from the VirtualBox
+    ![StartPotato](./img/potato_server_initial.png)
+
 1. Confirm the IP address of the Potato virtual machine from the attack virtual machine  
-![netdiscover](./img/potato_server1.png)
-![PotatoIP-Address](./img/potato_server2.png)
-    * 192.168.56.100: DHCP Server
-    * **192.168.56.102**: Potato Server
+    * `sudo netdiscover -i enp0s3 -r 192.168.56.0/24`
+    ![netdiscover](./img/potato_server1.png)
+    ![PotatoIP-Address](./img/potato_server2.png)
+        * 192.168.56.100: DHCP Server
+        * **192.168.56.102**: Potato Server
+
 1. Set the Potato IP address to the environment variance  
 `export IP=192.168.56.102`  
 
 ## Reconnaissance
 1. Do portscan using Nmap  
-`sudo nmap -sC -sV -Pn -p- $IP -oN nmap_result.txt`  
-![nmap](./img/potato_server3.png)
-    * -sC: Scan with default script
-    * -sV: Show software name and the version
-    * -Pn: Do not confirm communication before port scan (We have already confirmed the Potato IP address.)
-    * -p-: Scan all ports (from 0 to 65535 ports)
-    * -oN: Output the scan results to the specified file
+    * `sudo nmap -sC -sV -Pn -p- $IP -oN nmap_result.txt`  
+    ![nmap](./img/potato_server3.png)
+        * -sC: Scan with default script
+        * -sV: Show software name and the version
+        * -Pn: Do not confirm communication before port scan (We have already confirmed the Potato IP address.)
+        * -p-: Scan all ports (from 0 to 65535 ports)
+        * -oN: Output the scan results to the specified file
+
 1. As we see the nmap result, we can attempt to log in with AnonymousFTP.  
 
 ## Initial Access
 1. Access the FTP service  
-`ftp $IP 2112`  
-![FTP-Access](./img/potato_server4.png)
-    * Name: anonymous
-    * Password: password (empty is OK)
+    * `ftp $IP 2112`  
+    ![FTP-Access](./img/potato_server4.png)
+        * Name: anonymous
+        * Password: password (empty is OK)
+
 1. Get index.php.bak and welcome.msg files
-![GetFiles](./img/potato_server5.png)
+    * `get index.php.bak`, `get welcome.msg`  
+    ![GetFiles](./img/potato_server5.png)
+
 1. Exit FTP service  
-Input the `exit`.  
-1. Confirm the downloaded files
-    - Investigate the "welcome.msg" and confirm the content
+Input the `exit`  
+
+1. Confirm the downloaded files  
+    * Investigate the "welcome.msg" and confirm the content  -> There is no useful information in this file 
     ![Welcome.msg](./img/potato_server6.png)  
-    There is no useful information in this file.  
-    - Investigate the "index.php.bak" and confirm the content
+    * Investigate the "index.php.bak" and confirm the content -> the username is fixed to "admin" and the default pass is "potato"  
     ![index.php.bak](./img/potato_server7.png)  
-    username is fixed to "admin"  
-    default pass is "potato"  
+ 
 1. Since we know the index.php page and the Nmap result shows the 80 port is open, we find accessible files and directories using Gobuster.
     - Set the 80 port URL to the environment variance  
     `export URL="http://$IP:80/"`  
@@ -54,6 +65,7 @@ Input the `exit`.
         * -w: Use dictionary file
     - Find /admin directory
     ![admin_directory](./img/potato_server8.png)
+
 1. Access the /admin page using Burp
     - Proxy -> Intercept -> Intercept on -> Open browser -> Enter "http://192.168.56.102/admin" in the browser  
     - Click "Forward" until Login page is shown
@@ -73,11 +85,12 @@ Input the `exit`.
     - Change the log_01.txxt file directory  
     Current: `file=log_01.txt`  
     Changed: `../../../../../etc/passwd`  
-    ![file_directory](./img/potato_server10.png)
+    ![file_directory](./img/potato_server10.png)  
     ![etc_passwd](./img/potato_server11.png)
+
 1. Make /etc/passwd data file using the Cookie pass and curl command
     - Cookie pass is as follows  
-    ![Cookie_pass](./img/potato_server12.png)
+    ![Cookie_pass](./img/potato_server12.png)  
     - Curl command is as follows  
     `curl -X POST -b "pass=serdesfsefhijosefjtfgyuhjiosefdfthgyjh" -d 'file=../../../../../etc/passwd' "http://192.168.56.102/admin/dashboard.php?page=log" | tr '\0' '\n' | cat > etc_passwd.txt`  
         * -X: Designate HTTP method
@@ -85,6 +98,7 @@ Input the `exit`.
         * -d: Send form as POST request
         * tr '\0' '\n': Replace null with carriage return
         * cat > etc_passwd.txt: Output the command result in the etc_passwd.txt
+
 1. Analyze the etc_passwd.txt
     - Extract login-enabled users using the following command  
     `cat etc_passed.txt | grep -P 'sh$'`  
@@ -108,6 +122,33 @@ Input the `exit`.
     ![General-user-text](./img/potato_server16.png)  
 
 ## Privilege Escalation
+1. Access to the other user home directory
+    * While analyzing password hash, we know there is a "florianges" user
+    * Access to the "home/floarianges" directory and seek attackable files  
+    ![floarianges-home](./img/potato_server17.png)  
+    * There is a suspicious "sudo_as_admin_successful" file but the file size is 0   
+    -> Think other approaches
 
+1. Confirm sudo setting  
+    * Check webadmin's permission using `sudo-l`
+    * password: **dragon**  
+    ![sudo-webadmin](./img/potato_server18.png)  
+    * webadmin can execute "/bin/nice" program (x has been granted)
+    * We find that "/bin/nice" is used to modify the scheduling priority from the man command
+    * There is no read permission for the "/notes/clear.sh" and "/notes/id.sh" files  
+
+1. Investigate the "clear.sh" and "id.sh" files' behaviors  
+    * `sudo /bin/nice /notes/clear.sh` -> The display is cleared
+    * `sudo /bin/nice /notes/id.sh` -> The "id.sh" is implied to be executed with root permission and webadmin may gain root permission
+    ![notes-id.sh](./img/potato_server19.png)  
+
+1. Escalation
+    * Excecute /bin/bash using nice command  
+    **`sudo /bin/nice /notes/../bin/bash`**  
+    ![Escalation](./img/potato_server20.png)  
+    * Return root permission's prompt (# is displayed)  
 
 ## Credential Access for root user
+1. Access the "root.txt" file of root user
+    * Go to the root directory and access the "root.txt" file  
+    ![root.txt](./img/potato_server21.png)
