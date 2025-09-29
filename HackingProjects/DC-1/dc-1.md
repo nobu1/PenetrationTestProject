@@ -10,8 +10,8 @@
     ![Host-onlyAdapter](./img/dc-1-server_network.png)
 
 1. Start the Potato virtual machine
-    * Turn on the potato virtual machine from the VirtualBox
-    ![StartPotato](./img/dc-1-server_initial.png)
+    * Turn on the potato virtual machine from the VirtualBox  
+    ![StartPotato](./img/dc-1-server_initial.png)  
 
 1. Confirm the IP address of the Potato virtual machine from the attack virtual machine  
     * `sudo netdiscover -i enp0s3 -r 192.168.56.0/24`  
@@ -21,7 +21,7 @@
         * **192.168.56.104**: DC-1 Server
 
 1. Set the DC-1 IP address to the environment variance  
-`export IP=192.168.56.104`  
+    * `export IP=192.168.56.104`  
 
 ## Reconnaissance
 1. Do portscan using Nmap  
@@ -37,15 +37,17 @@
 
 ## Initial Access
 1. Access the HTTP service using ParrotOS browser    
+    * Enter `http://192.168.56.104:80`  
     ![HTTP-Access](./img/dc-1-server4.png)  
 
 1. Confirm exisiting the "robots.txt file" 
+    * Enter `http://192.168.56.104/robots.txt`  
     ![Robot-txt](./img/dc-1-server5.png)  
-    * "Disallow": Deny crawler access  
+        - "Disallow": Deny crawler access  
 
 1. Access "/MAINTAINERS.txt
-    ![MAINTAINERS-txt](./img/dc-1-server6.png)  
     * It implies the service uses Drupal version 7  
+    ![MAINTAINERS-txt](./img/dc-1-server6.png)  
 
 1. Use droopescan (CMS vulnerability scanner)
     * Set the target URL to the environment variance  
@@ -67,7 +69,7 @@
 ## Execution
 1. Start Metasploit
     * Try to attack with "Drupalgeddon" vulnerability
-    
+
 
 ## Privilege Escalation
 1. 
