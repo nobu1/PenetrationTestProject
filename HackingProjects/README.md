@@ -15,3 +15,12 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | Difficulty  | Easy to medium                                                          |
 | Goal        | 2 Flags (user.txt and root.txt)                                         |
 | Hacking     | [See the walkthrough](./Potato/potato.md) |
+<br>
+
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/dc-1,292/](https://www.vulnhub.com/entry/dc-1,292/) |
+| VM Name     | DC: 1                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | thefinalflag.txt                                         |
+| Hacking     | [See the walkthrough](./DC-1/dc-1.md) |

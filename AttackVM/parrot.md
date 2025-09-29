@@ -62,7 +62,12 @@ Although Kali is more popular than ParrotOS, I select ParrotOS. The reason is th
 
 1. Install FTP command  
     `sudo apt update`  
-    `sudo apt install ftp`
+    `sudo apt install ftp`  
+
+1. Install droopescan
+    `python3 -m venv myenv`  
+    `source myenv/bin/activate`  
+    `pip install droopescan`
 
 ## Change Network Adapter Setting
 1. Network adapter setting from NAT to **Host-only Adapter**  
