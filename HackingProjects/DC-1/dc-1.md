@@ -48,5 +48,29 @@
     * It implies the service uses Drupal version 7  
 
 1. Use droopescan (CMS vulnerability scanner)
-    
+    * Set the target URL to the environment variance  
+    `export URL="http://$IP:80/`  
+    * Scan using droopescan  
+    ![droopescan](./img/dc-1-server7.png)
+        - 5 plugins
+        - 2 theme
+        - Possible versions (7.22 - 7.26)
+        - Possible interesting URL (/user/login)
+
+1. Investigate Exploits for Drupal
+    * Access to the [Exploit Database](https://www.exploit-db.com/)  
+    * Search exploitations for the following keywords  
+    `drupal 7 remote`  
+    ![Remote-Exploit](./img/dc-1-server8.png)  
+        - Memorize the "**Drupalgeddon**"
+
 ## Execution
+1. Start Metasploit
+    * Try to attack with "Drupalgeddon" vulnerability
+    
+
+## Privilege Escalation
+1. 
+
+## Credential Access for root user
+1. 
