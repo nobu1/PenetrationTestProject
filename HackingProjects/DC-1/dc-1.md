@@ -104,7 +104,7 @@
         - Enter `python -c 'import pty; pty.spawn("/bin/bash")'`
 
 1. Investigate the home directory files
-    * Find useful information
+    * Find useful information  
     ![home-directory](./img/dc-1-server14.png)
         - Although ".bash_history" may have attack hints in the previous command histories, there is no permission for the general users
         - The "flag4.txt" file may also not be useful
@@ -131,6 +131,6 @@
 
 ## Credential Access for root user
 1. Open "thefinalflag" file
-    * Move to "root" directory
-    * Access the "thefinalflag.txt"
+    * Move to "root" directory  
+    * Access the "thefinalflag.txt"  
     ![final-flag](./img/dc-1-server17.png)
