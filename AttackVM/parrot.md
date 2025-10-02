@@ -69,7 +69,7 @@ Although Kali is more popular than ParrotOS, I select ParrotOS. The reason is th
     `source myenv/bin/activate`  
     `pip install droopescan`  
 
-1. Install CeWL
+1. Install CeWL  
     `git clone https://github.com/digininja/CeWL`  
     `cd CeWL`  
     `sudo gem install bundler`  
