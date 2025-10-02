@@ -64,7 +64,7 @@ Although Kali is more popular than ParrotOS, I select ParrotOS. The reason is th
     `sudo apt update`  
     `sudo apt install ftp`  
 
-1. Install Droopescan
+1. Install Droopescan  
     `python3 -m venv myenv`  
     `source myenv/bin/activate`  
     `pip install droopescan`  
