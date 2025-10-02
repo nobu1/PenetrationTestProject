@@ -17,6 +17,7 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | Hacking     | [See the walkthrough](./Potato/potato.md) |
 <br>
 
+**DC: 1 (VulnHub)**  
 | Item        | Details                                                                 |
 |:-----------|:-----------------------------------------------------------------------|
 | URL         | [https://www.vulnhub.com/entry/dc-1,292/](https://www.vulnhub.com/entry/dc-1,292/) |
@@ -26,6 +27,7 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | Hacking     | [See the walkthrough](./DC-1/dc-1.md) |
 <br>
 
+**DC: 2 (VulnHub)**  
 | Item        | Details                                                                 |
 |:-----------|:-----------------------------------------------------------------------|
 | URL         | [https://www.vulnhub.com/entry/dc-2,311/](https://www.vulnhub.com/entry/dc-2,311/) |
