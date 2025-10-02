@@ -37,3 +37,16 @@
 
 ## Initial Access
 1. 
+
+
+## Execution
+1. 
+
+## Credential Access for general user
+1. 
+
+## Privilege Escalation
+1. 
+
+## Credential Access for root user
+1. 

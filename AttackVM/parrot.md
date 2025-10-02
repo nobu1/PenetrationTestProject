@@ -64,10 +64,17 @@ Although Kali is more popular than ParrotOS, I select ParrotOS. The reason is th
     `sudo apt update`  
     `sudo apt install ftp`  
 
-1. Install droopescan
+1. Install Droopescan
     `python3 -m venv myenv`  
     `source myenv/bin/activate`  
-    `pip install droopescan`
+    `pip install droopescan`  
+
+1. Install CeWL
+    `git clone https://github.com/digininja/CeWL`  
+    `cd CeWL`  
+    `sudo gem install bundler`  
+    `bundle install`  
+    `chmod u+x ./cewl.rb`  
 
 ## Change Network Adapter Setting
 1. Network adapter setting from NAT to **Host-only Adapter**  
