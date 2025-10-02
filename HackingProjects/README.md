@@ -24,3 +24,12 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | DHCP        | Enabled                                                                 |
 | Goal        | thefinalflag.txt                                         |
 | Hacking     | [See the walkthrough](./DC-1/dc-1.md) |
+<br>
+
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/dc-2,311/](https://www.vulnhub.com/entry/dc-2,311/) |
+| VM Name     | DC: 2                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | final-flag.txt                                         |
+| Hacking     | [See the walkthrough](./DC-2/dc-2.md) |

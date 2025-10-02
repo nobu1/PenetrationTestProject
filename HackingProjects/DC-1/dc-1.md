@@ -9,14 +9,14 @@
     * Attached to: **Host-only Adapter**
     ![Host-onlyAdapter](./img/dc-1-server_network.png)
 
-1. Start the Potato virtual machine
-    * Turn on the potato virtual machine from the VirtualBox  
-    ![StartPotato](./img/dc-1-server_initial.png)  
+1. Start the DC-1 virtual machine
+    * Turn on the DC-1 virtual machine from the VirtualBox  
+    ![StartDC-1](./img/dc-1-server_initial.png)  
 
-1. Confirm the IP address of the Potato virtual machine from the attack virtual machine  
+1. Confirm the IP address of the DC-1 virtual machine from the attack virtual machine  
     * `sudo netdiscover -i enp0s3 -r 192.168.56.0/24`  
     ![netdiscover](./img/dc-1_server1.png)  
-    ![PotatoIP-Address](./img/dc-1-server2.png)  
+    ![DC-1-IP-Address](./img/dc-1-server2.png)  
         * 192.168.56.100: DHCP Server
         * **192.168.56.104**: DC-1 Server
 
@@ -29,7 +29,7 @@
     ![nmap](./img/dc-1-server3.png)
         * -sC: Scan with default script
         * -sV: Show software name and the version
-        * -Pn: Do not confirm communication before port scan (We have already confirmed the Potato IP address.)
+        * -Pn: Do not confirm communication before port scan (We have already confirmed the DC-1 IP address.)
         * -p-: Scan all ports (from 0 to 65535 ports)
         * -oN: Output the scan results to the specified file
 
