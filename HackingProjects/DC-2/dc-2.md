@@ -72,6 +72,7 @@
         - Found other 2 users (**tom** and **jerry**)  
     * Make users list  
     `vi users.txt`  
+    ![users-file](./img/dc-2-server9-2.png)  
 
 1. Make password dictionary file
     * According to the Flag1 page, it indicates using CeWL  
