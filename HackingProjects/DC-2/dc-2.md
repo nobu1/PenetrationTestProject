@@ -136,7 +136,7 @@
         - Functional restriction mode cannot be disabled  
 
 1. Search usr directory
-    * Search using ls command
+    * Search using ls command  
     ![rbash-ls](./img/dc-2-server16.png)  
         - There are "less", "ls", "scp", and "vi" symbolic links
 
