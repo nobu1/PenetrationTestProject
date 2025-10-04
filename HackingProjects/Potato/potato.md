@@ -47,7 +47,7 @@
     ![GetFiles](./img/potato_server5.png)
 
 1. Exit FTP service  
-Input the `exit`  
+    * Input the `exit`  
 
 1. Confirm the downloaded files  
     * Investigate the "welcome.msg" and confirm the content  -> There is no useful information in this file 
