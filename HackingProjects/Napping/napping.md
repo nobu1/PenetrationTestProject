@@ -22,3 +22,15 @@
 
 1. Set the Napping-1.0.1 IP address to the environment variance  
     * `export IP=192.168.56.106`  
+
+## Reconnaissance
+1. Do portscan using Nmap  
+    * `sudo nmap -sC -sV -Pn -p- $IP -oN nmap_result.txt`  
+    ![nmap](./img/napping-101_server3.png)
+        * -sC: Scan with default script
+        * -sV: Show software name and the version
+        * -Pn: Do not confirm communication before port scan (We have already confirmed the Napping-1.0.1 IP address.)
+        * -p-: Scan all ports (from 0 to 65535 ports)
+        * -oN: Output the scan results to the specified file
+
+1. As we see the nmap result, we can attempt to access of 22 (SSH Service) and 80 (Http Service) ports.  
