@@ -35,3 +35,15 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | DHCP        | Enabled                                                                 |
 | Goal        | final-flag.txt                                         |
 | Hacking     | [See the walkthrough](./DC-2/dc-2.md) |
+<br>
+
+**NAPPING: 1.0.1 (VulnHub)**  
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/napping-101,752/](https://www.vulnhub.com/entry/napping-101,752/) |
+| VM Name     | NAPPING: 1.0.1                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | root.txt                                         |
+| Hacking     | [See the walkthrough](./Napping/napping.md) |
+<br>
+
