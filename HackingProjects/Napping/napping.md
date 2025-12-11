@@ -169,5 +169,4 @@
 1. SSH access confirmation  
     * `ssh backdoor@192.168.56.106`  
     ![backdoor-ssh](./img/napping-101_server26.png)    
-        - Root prompt is shown  
         - Password: `passw0rd`  
