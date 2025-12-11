@@ -42,7 +42,7 @@
 
 1. Make a new account
     * Click "Sing up now" link  
-    * Make a new account as following infomation
+    * Make a new account as following infomation  
     ![New-account](./img/napping-101_server5.png)  
         - Username: `evil`  
         - Password: `password`  
