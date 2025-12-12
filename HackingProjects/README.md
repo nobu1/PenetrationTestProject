@@ -47,3 +47,12 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | Hacking     | [See the walkthrough](./Napping/napping.md) |
 <br>
 
+**Victim: 1 (VulnHub)**  
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/victim-1,469/](https://www.vulnhub.com/entry/victim-1,469/) |
+| VM Name     | Victim: 1                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | root/flag.txt                                         |
+| Hacking     | [See the walkthrough](./Victim1/victim1.md) |
+<br>
