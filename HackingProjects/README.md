@@ -56,3 +56,13 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | Goal        | root/flag.txt                                         |
 | Hacking     | [See the walkthrough](./Victim1/victim1.md) |
 <br>
+
+**PwnLab: (VulnHub)**  
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/pwnlab-init,158/](https://www.vulnhub.com/entry/pwnlab-init,158/) |
+| VM Name     | PwnLab                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | root/flag.txt                                         |
+| Hacking     | [See the walkthrough](./Pwnlab/pwnlab.md) |
+<br>
