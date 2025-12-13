@@ -167,6 +167,6 @@
 
 ## Credential Access for root user  
 1. Open the root flag file  
-    * `strings flag.txt`
+    * `strings flag.txt`  
     ![Flag](./img/pwnlab-server28.png)  
         - Do not use **cat** command to see the flag.txt  
