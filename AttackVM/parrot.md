@@ -77,7 +77,8 @@ Although Kali is more popular than ParrotOS, I select ParrotOS. The reason is th
     `chmod u+x ./cewl.rb`  
 
 1. Install LinPEAS  
-    `wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh -p ~/`  
+    Access to the `https://github.com/peass-ng/PEASS-ng/releases`  
+    Download the "linpeas.sh" file  
 
 ## Change Network Adapter Setting
 1. Network adapter setting from NAT to **Host-only Adapter**  
