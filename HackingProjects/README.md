@@ -66,3 +66,13 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | Goal        | root/flag.txt                                         |
 | Hacking     | [See the walkthrough](./Pwnlab/pwnlab.md) |
 <br>
+
+**EvilBox: One (VulnHub)**  
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/evilbox-one,736/](https://www.vulnhub.com/entry/evilbox-one,736/) |
+| VM Name     | EvilBox: 1                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | root.txt                                         |
+| Hacking     | [See the walkthrough](./EvilBox/evilbox.md) |
+<br>
