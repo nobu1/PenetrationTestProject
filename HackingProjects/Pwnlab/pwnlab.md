@@ -33,20 +33,20 @@
         * -p-: Scan all ports (from 0 to 65535 ports)
         * -oN: Output the scan results to the specified file
 
-1. As we see the nmap result, we can attempt to access of 80 (HTTP Service), 111 (RPCBIND Service), 3360 (MySQL Service), and 40442 ports.  
+    * As we see the nmap result, we can attempt to access of 80 (HTTP Service), 111 (RPCBIND Service), 3360 (MySQL Service), and 40442 ports.  
 
 1. Collect HTTP service information  
     * Use Nikto to collect info  
-    * `nikto -h http://192.168.56.108`  
     ![Nikto](./img/pwnlab-server4.png)  
+        - `nikto -h http://192.168.56.108`  
         - The page has a "config.php" file  
 
 1. Search accessible files  
     * Use Gobuster  
-    * `gobuster dir -u http://192.168.56.108/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x php,html,txt`  
     ![Gobuster](./img/pwnlab-server5.png)    
+        - `gobuster dir -u http://192.168.56.108/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x php,html,txt`  
         - We can access the "index.php" file  
-
+    
 ## Initial Access
 1. Access to the config.php  
     * Access from the Web browser  
