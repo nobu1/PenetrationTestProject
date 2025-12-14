@@ -97,4 +97,8 @@
         - Password: **unicorn**  
         - We can log in as a mowree user  
 
-       
+## Credential Access  for general user  
+1. Open the user's flag  
+    * There is a flag file in mowree's home directory  
+    ![Mowree-flag](./img/evilbox-server13.png)  
+
