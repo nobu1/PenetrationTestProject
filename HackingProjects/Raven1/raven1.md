@@ -7,16 +7,16 @@
 
 1. Set the network adapter to Host-only Adapter
     * Attached to: **Host-only Adapter**
-    ![Host-onlyAdapter](./img/evilbox-server_network.png)    
+    ![Host-onlyAdapter](./img/raven1_server_network.png)    
 
 1. Start the Raven1 virtual machine
     * Turn on the Raven1 virtual machine from the VirtualBox  
-    ![StartPwnLab](./img/evilbox-server_initial.png)  
+    ![StartPwnLab](./img/raven1_server_initial.png)  
 
 1. Confirm the IP address of the Raven1 virtual machine from the attack virtual machine  
     * `sudo netdiscover -i enp0s3 -r 192.168.56.0/24`  
     ![netdiscover](./img/raven1_server1.png)  
-    ![PwnLab-IP-Address](./img/evilbox-server2.png)  
+    ![PwnLab-IP-Address](./img/raven1_server2.png)  
         * 192.168.56.100: DHCP Server
         * **192.168.56.110**: Raven1 Server
 
