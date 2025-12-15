@@ -22,3 +22,35 @@
 
 1. Set the Raven1 IP address to the environment variance  
     * `export IP=192.168.56.110`  
+
+## Reconnaissance
+1. Do portscan using Nmap  
+    * `sudo nmap -sC -sV -Pn -p- $IP -oN nmap_result.txt`  
+    ![nmap](./img/raven1_server3.png)  
+        * -sC: Scan with default script
+        * -sV: Show software name and the version
+        * -Pn: Do not confirm communication before port scan (We have already confirmed the DC-2 IP address.)
+        * -p-: Scan all ports (from 0 to 65535 ports)
+        * -oN: Output the scan results to the specified file
+    * As we see the nmap result, we can attempt to access of 22 (SSH Service), 80 (HTTP Service), and 111 (RPCBIND Service) ports.  
+
+1. Enumerate accessible files and directories  
+    * Use DIRB  
+    ![DIRB](./img/raven1_server4.png)  
+        - `export URL="http://$IP:80/"`  
+        - `dirb $URL -r`  
+        - There is a /wordpress directory  
+
+1. Access to the wordpress directory  
+    * Access from Web browser  
+    ![Wordpress-page](./img/raven1_server5.png)  
+        - The display layout is not arranged  
+    * Add the IP address in the /etc/hosts  
+    ![etc-hosts](./img/raven1_server6.png)  
+        - `sudo vi /etc/hosts`  
+        - `192.168.56.110 raven.local`  
+        - The display is arranged  
+
+1. Enumerate users of WordPress  
+    * Use WPScan  
+        - `wpscan --url $URL/wordpress --enumerate u`  
