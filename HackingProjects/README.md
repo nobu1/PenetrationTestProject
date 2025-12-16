@@ -103,6 +103,6 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | URL         | [https://www.vulnhub.com/entry/nullbyte-1,126/](https://www.vulnhub.com/entry/nullbyte-1,126/) |
 | VM Name     | NullByte: 1                                                                  |
 | DHCP        | Enabled                                                                 |
-| Goal        | root/flag.txt                                         |
+| Goal        | root/proof.txt                                         |
 | Hacking     | [See the walkthrough](./NullByte1/nullbyte1.md) |
 <br>
