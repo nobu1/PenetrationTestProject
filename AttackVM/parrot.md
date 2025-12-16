@@ -84,6 +84,12 @@ Although Kali is more popular than ParrotOS, I select ParrotOS. The reason is th
     `sudo gem install wpscan`  
     `wpscan --update`  
 
+1. Install droopescan  
+    `sudo apt install pipx -y`  
+    `pipx install droopescan`  
+    Go to the installed directory of droopescan (My case: ~/.local/pipx/venvs/droopescan/bin)  
+    `pipx ensurepath`  
+
 ## Change Network Adapter Setting
 1. Network adapter setting from NAT to **Host-only Adapter**  
     * Since the host-only adapter can communicate within the virtual network, no damage occurs even if the machine attempts to attack a public service machines.  

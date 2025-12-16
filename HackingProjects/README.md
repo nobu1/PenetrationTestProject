@@ -86,3 +86,13 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | Goal        | root.txt                                         |
 | Hacking     | [See the walkthrough](./Raven1/raven1.md) |
 <br>
+
+**VulnOS: 2 (VulnHub)**  
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/vulnos-2,147/](https://www.vulnhub.com/entry/vulnos-2,147/) |
+| VM Name     | Raven: 1                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | root/flag.txt                                         |
+| Hacking     | [See the walkthrough](./VulnOS2/vulnos2.md) |
+<br>
