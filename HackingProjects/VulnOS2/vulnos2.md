@@ -46,6 +46,6 @@
 
 1. Scan the web page  
     * Use droopescan  
-    ![]()  
+    ![droopescan](./img/vulnos2_server6.png)  
         - `droopescan scan -u http://192.168.56.104/jabc/`  
         - The Drupal version: 7.22 ~ 7.26  
