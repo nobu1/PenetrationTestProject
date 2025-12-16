@@ -91,8 +91,18 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | Item        | Details                                                                 |
 |:-----------|:-----------------------------------------------------------------------|
 | URL         | [https://www.vulnhub.com/entry/vulnos-2,147/](https://www.vulnhub.com/entry/vulnos-2,147/) |
-| VM Name     | Raven: 1                                                                  |
+| VM Name     | VulnOS: 2                                                                  |
 | DHCP        | Enabled                                                                 |
 | Goal        | root/flag.txt                                         |
 | Hacking     | [See the walkthrough](./VulnOS2/vulnos2.md) |
+<br>
+
+**NullByte: 1 (VulnHub)**  
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/nullbyte-1,126/](https://www.vulnhub.com/entry/nullbyte-1,126/) |
+| VM Name     | NullByte: 1                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | root/flag.txt                                         |
+| Hacking     | [See the walkthrough](./NullByte1/nullbyte1.md) |
 <br>
