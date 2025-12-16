@@ -64,7 +64,7 @@
         - `set TARGETURI /jabc/`  
         - `run`  
 
-## Credential Access  
+## Persistence  
 1. Change shell  
     * Get TTY shell  
     ![TTY-shell](./img/vulnos2_server7.png)  
