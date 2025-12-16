@@ -60,6 +60,10 @@ Although Kali is more popular than ParrotOS, I select ParrotOS. The reason is th
 1. Extract rockyou.txt.gz file from the terminal  
     `gunzip /usr/share/wordlists/rockyou.txt.gz`
 
+1. Download Password List for Hydra  
+    Download page: https://github.com/danielmiessler/SecLists/tree/master/Passwords/Common-Credentials  
+    `unzip SecLists-mater.zip`  
+
 1. Install FTP command  
     `sudo apt update`  
     `sudo apt install ftp`  
