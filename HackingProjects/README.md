@@ -106,3 +106,13 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | Goal        | root/proof.txt                                         |
 | Hacking     | [See the walkthrough](./NullByte1/nullbyte1.md) |
 <br>
+
+**Mr-Robot: 1 (VulnHub)**  
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/mr-robot-1,151/](https://www.vulnhub.com/entry/mr-robot-1,151/) |
+| VM Name     | Mr-Robot: 1                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | root/key-3-of-3.txt                                         |
+| Hacking     | [See the walkthrough](./MrRobot-1/mr_robot1.md) |
+<br>
