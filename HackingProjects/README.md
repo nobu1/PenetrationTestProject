@@ -123,6 +123,6 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | URL         | [https://www.vulnhub.com/entry/toppo-1,245/](https://www.vulnhub.com/entry/toppo-1,245/) |
 | VM Name     | Toppo: 1                                                                  |
 | DHCP        | Enabled                                                                 |
-| Goal        | Get root shell                                         |
+| Goal        | root/flag.txt                                         |
 | Hacking     | [See the walkthrough](./Toppo1/toppo1.md) |
 <br>
