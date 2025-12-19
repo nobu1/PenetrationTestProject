@@ -23,3 +23,15 @@
 1. Set the Jangow.1.0.1 IP address to the environment variance  
     * `export IP=192.168.56.118`  
 
+## Reconnaissance
+1. Do portscan using Nmap  
+    * `sudo nmap -sC -sV -Pn -p- $IP -oN nmap_result.txt`  
+    ![nmap](./img/jangow_server3.png)  
+        * -sC: Scan with default script
+        * -sV: Show software name and the version
+        * -Pn: Do not confirm communication before port scan (We have already confirmed the DC-2 IP address.)
+        * -p-: Scan all ports (from 0 to 65535 ports)
+        * -oN: Output the scan results to the specified file
+    * As we see the nmap result, we can attempt to access of 21 (FTP Service) and 80 (HTTP Service) ports.  
+
+1. Access to the HTTP Service  
