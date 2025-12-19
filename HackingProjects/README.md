@@ -126,3 +126,13 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | Goal        | root/flag.txt                                         |
 | Hacking     | [See the walkthrough](./Toppo1/toppo1.md) |
 <br>
+
+**Jangow: 1.0.1 (VulnHub)**  
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/jangow-101,754/](https://www.vulnhub.com/entry/jangow-101,754/) |
+| VM Name     | Jangow: 1.0.1                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | root/proof.txt                                         |
+| Hacking     | [See the walkthrough](./Jangow/jangow.md) |
+<br>
