@@ -116,3 +116,13 @@ I select **[VulnHub](https://www.vulnhub.com/)** and **[Metasploitable3](https:/
 | Goal        | root/key-3-of-3.txt                                         |
 | Hacking     | [See the walkthrough](./MrRobot-1/mr_robot1.md) |
 <br>
+
+**Toppo: 1 (VulnHub)**  
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/toppo-1,245/](https://www.vulnhub.com/entry/toppo-1,245/) |
+| VM Name     | Toppo: 1                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | Get root shell                                         |
+| Hacking     | [See the walkthrough](./Toppo1/toppo1.md) |
+<br>
