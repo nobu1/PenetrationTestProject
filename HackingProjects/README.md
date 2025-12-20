@@ -146,3 +146,13 @@ Therefore, I select **[VulnHub](https://www.vulnhub.com/)** platform because the
 | Goal        | root/root.txt                                         |
 | Hacking     | [See the walkthrough](./DeathNote-1/deathnote.md) |
 <br>
+
+**Empire: LupinOne (VulnHub)**  
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/empire-lupinone,750/](https://www.vulnhub.com/entry/empire-lupinone,750/) |
+| VM Name     | Deathnote: 1                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | root/root.txt                                         |
+| Hacking     | [See the walkthrough](./Lupinone/lupinone.md) |
+<br>
