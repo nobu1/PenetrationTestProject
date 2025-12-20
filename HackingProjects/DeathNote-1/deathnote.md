@@ -105,4 +105,43 @@
         - `cat wp-config.php`  
         - DB_USER: **l**  
         - DB_PASSWORD: **death4me**  
-    
+
+## Persistence  
+1. Change user  
+    * Change user from "www-data" to "l"  
+        - `su l` 
+        - Password: death4me  
+
+1. Search the l's directory  
+    * Search /opt directory  
+    ![case-wav](./img/deathnote_server15.png)  
+        - `cd /opt`  
+        - `cd fake-notebook-rule`  
+        - `cat hint`  
+        - `cat case.wav`  
+
+1. Decode case.wav file with Cyberchef  
+    * Access to the Cyberchef (https://gchq.github.io/CyberChef/)  
+    ![CyberChef](./img/deathnote_server16.png)  
+        - Select the "From Hex" and the "From Base64"  
+        - Password: **kiraisevil**  
+
+1. Change user  
+    * Change user from "l" to "kira"  
+        - `su kira`  
+        - Password: kiraisevil  
+
+## Privilege Escalation  
+1. Confirm sudo  
+    * Use "sudo -l" command  
+    ![sudo-kira](./img/deathnote_server17.png)  
+        - `sudo -l`  
+        - The kira has all sudo rights  
+
+## Credential Access  
+1. Open the root flag file  
+    * Open the root.txt  
+    ![Root-flag](./img/deathnote_server18.png)  
+        - `sudo su`  
+        - `cd /root`  
+        - `cat root.txt`  
