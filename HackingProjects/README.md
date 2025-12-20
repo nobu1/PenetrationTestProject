@@ -136,3 +136,13 @@ Therefore, I select **[VulnHub](https://www.vulnhub.com/)** platform because the
 | Goal        | root/proof.txt                                         |
 | Hacking     | [See the walkthrough](./Jangow/jangow.md) |
 <br>
+
+**Deathnote: 1 (VulnHub)**  
+| Item        | Details                                                                 |
+|:-----------|:-----------------------------------------------------------------------|
+| URL         | [https://www.vulnhub.com/entry/deathnote-1,739/](https://www.vulnhub.com/entry/deathnote-1,739/) |
+| VM Name     | Deathnote: 1                                                                  |
+| DHCP        | Enabled                                                                 |
+| Goal        | root/root.txt                                         |
+| Hacking     | [See the walkthrough](./DeathNote-1/deathnote.md) |
+<br>
